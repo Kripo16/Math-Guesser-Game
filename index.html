@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Guesser Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+    <h1>Math Guesser Game</h1>
+    <p>Click "Run" and follow the instructions:</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        // Generate random values for X, Y, and D
+        let X,Y,R,D
+        function randomXYRD() {
+            X = getRandomNumber();
+            Y = getRandomNumber();
+            R = getRandomNumber();
+            D = getRandomNumber();
+        }
+        function method1() {
+            randomXYRD()
+            Swal.fire({
+                title: "Step 1",
+                html: "<pre>Think of a number and click 'OK'😍<pre>\n❗ can't be 0 ❗",
+                icon: "info",
+                allowOutsideClick: false,
+            }).then(() => {
+                Swal.fire({
+                    title: "Step 2",
+                    text: `Multiply your number by ${X} 😊`,
+                    icon: "info",
+                    allowOutsideClick: false,
+                }).then(() => {
+                    Swal.fire({
+                        title: "Step 3",
+                        text: `Multiply the result by ${Y} 😏`,
+                        icon: "info",
+                        allowOutsideClick: false,
+                    }).then(() => {
+                        Swal.fire({
+                            title: "Step 4",
+                            text: "Divide the result by the first number you chose. 🤫",
+                            icon: "info",
+                            allowOutsideClick: false,
+                        }).then(() => {
+                            const finalResult = (X * Y) - D;
+                            Swal.fire({
+                                title: "Step 5",
+                                text: `Subtract the number ${D} 😚`,
+                                icon: "info",
+                                allowOutsideClick: false,
+                            }).then(() => {
+                                Swal.fire({
+                                    title: "Final Result",
+                                    text: `The final result is ${finalResult} 🤗`,
+                                    icon: "success",
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        }
+
+        function method2() {
+            randomXYRD()
+            Swal.fire({
+                title: "Step 1",
+                html: "<pre>Think of a number and click 'OK'😍<pre>\n❗ can't be 0 ❗",
+                icon: "info",
+                allowOutsideClick: false,
+            }).then(() => {
+                Swal.fire({
+                    title: "Step 2",
+                    text: `Multiply your number by ${X} 😊`,
+                    icon: "info",
+                    allowOutsideClick: false,
+                }).then(() => {
+                    Swal.fire({
+                        title: "Step 3",
+                        text: `Multiply the result by ${Y} 😏`,
+                        icon: "info",
+                        allowOutsideClick: false,
+                    }).then(() => {
+                        Swal.fire({
+                            title: "Step 4",
+                            text: `Multiply the result by ${R} 🤫`,
+                            icon: "info",
+                            allowOutsideClick: false,
+                        }).then(() => {
+                            Swal.fire({
+                                title: "Step 5",
+                                text: "Divide the result by the first number you chose 😚",
+                                icon: "info",
+                                allowOutsideClick: false,
+                            }).then(() => {
+                                const finalResult = (X * Y * R) - D;
+                                Swal.fire({
+                                    title: "Step 6",
+                                    text: `Subtract the number ${D} 🤭`,
+                                    icon: "info",
+                                    allowOutsideClick: false,
+                                }).then(() => {
+                                    Swal.fire({
+                                        title: "Final Result",
+                                        text: `The final result is ${finalResult} 🤗`,
+                                        icon: "success",
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        }
+
+        function method3() {
+            randomXYRD()
+            Swal.fire({
+                title: "Step 1",
+                html: "<pre>Think of a number and click 'OK'😍<pre>\n❗ can't be 0 ❗",
+                icon: "info",
+                allowOutsideClick: false,
+            }).then(() => {
+                Swal.fire({
+                    title: "Step 2",
+                    text: `Multiply your number by ${X} 😊`,
+                    icon: "info",
+                    allowOutsideClick: false,
+                }).then(() => {
+                    Swal.fire({
+                        title: "Step 3",
+                        text: `Multiply the result by ${Y} 😏`,
+                        icon: "info",
+                        allowOutsideClick: false,
+                    }).then(() => {
+                        Swal.fire({
+                            title: "Step 4",
+                            text: "Divide the result by the first number you chose 🤫",
+                            icon: "info",
+                            allowOutsideClick: false,
+                        }).then(() => {
+                            Swal.fire({
+                                title: "Step 5",
+                                text: `Subtract the number ${D} 😚`,
+                                icon: "info",
+                                allowOutsideClick: false,
+                            }).then(() => {
+                                Swal.fire({
+                                    title: "Step 6",
+                                    text: `Add the number ${R} 🤭`,
+                                    icon: "info",
+                                    allowOutsideClick: false,
+                                }).then(() => {
+                                    const finalResult = (X * Y) - D + R;
+                                    Swal.fire({
+                                        title: "Final Result",
+                                        text: `The final result is ${finalResult} 🤗`,
+                                        icon: "success",
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        }
+
+        // Function to generate a random number between 1 and 10
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        const methods = [method1, method2, method3];
+
+        // Function to execute a random function
+        function executeRandomMethods() {
+            const randomMethod = methods[Math.floor(Math.random() * methods.length)];
+            randomMethod();
+        }
+    </script>
+
+    <button onclick="executeRandomMethods()">Run</button>
+</div>
+<!-- Footer section with copyright notice -->
+    <footer>
+        2023 KRIPO. All rights reserved.
+    </footer>
+
+</body>
+</html>
